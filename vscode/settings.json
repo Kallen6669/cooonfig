@@ -1,0 +1,26 @@
+{
+    "js/ts.locale": "zh-CN",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "k"],
+            "after": ["<Esc>"]
+        }
+       
+    ],
+    // 屏蔽 VSCodeVim 的 J（合并行）/ K（查看关键字），避免与 Shift+J/K 切文件冲突
+    "vim.normalModeKeyBindingsNonRecursive": [
+        { "before": ["J"], "after": [] },
+        { "before": ["K"], "after": [] }
+    ],
+    "vim.handleKeys": {
+        "<C-a>": false,  // 放行 Ctrl+A（全选）
+        "<C-c>": false,  // 放行 Ctrl+C（复制）
+        "<C-v>": false,  // 放行 Ctrl+V（粘贴）
+        "<C-x>": false,  // 放行 Ctrl+X（剪切）
+        "<C-s>": false,
+        "<C-z>": false
+    },
+    "vim.useCtrlKeys": false,
+    "RainbowBrackets.depreciation-notice": false,
+    "security.workspace.trust.untrustedFiles": "open"
+}

@@ -1,0 +1,152 @@
+[
+    // Ctrl+1：聚焦第 1 个编辑区
+    {
+        "key": "ctrl+1",
+        "command": "workbench.action.focusFirstEditorGroup"
+    },
+    // Ctrl+`：显示/聚焦终端（切换终端面板）
+    {
+        "key": "ctrl+`",
+        "command": "workbench.action.terminal.toggleTerminal"
+    },
+    // Ctrl+2：打开/聚焦左侧「文件资源管理器」
+    {
+        "key": "ctrl+2",
+        "command": "workbench.view.explorer"
+    },
+    // Ctrl+3：只切换编辑区焦点（右移并循环回第一个），不移动文件
+    {
+        "key": "ctrl+3",
+        "command": "workbench.action.focusNextGroup"
+    },
+    // Ctrl+4：把当前编辑区的文件移到右侧编辑区并聚焦编辑；已在最右侧时循环回到第一个
+    {
+        "key": "ctrl+4",
+        "command": "workbench.action.moveEditorToNextGroup",
+        "when": "!activeEditorGroupLast"
+    },
+    {
+        "key": "ctrl+4",
+        "command": "workbench.action.moveEditorToFirstGroup",
+        "when": "activeEditorGroupLast"
+    },
+    // Shift+J：向左切换到上一个文件（标签页）
+    {
+        "key": "shift+j",
+        "command": "workbench.action.previousEditor",
+        "when": "!terminalFocus"
+    },
+    // Shift+K：向右切换到下一个文件（标签页）
+    {
+        "key": "shift+k",
+        "command": "workbench.action.nextEditor",
+        "when": "!terminalFocus"
+    },
+    // Ctrl+X：关闭当前文件
+    {
+        "key": "ctrl+x",
+        "command": "workbench.action.closeActiveEditor"
+    },
+    // Ctrl+Shift+X（即 Ctrl+X 大写）：还原上次关闭的文件
+    {
+        "key": "ctrl+shift+x",
+        "command": "workbench.action.reopenClosedEditor"
+    },
+
+    // ===== 终端快捷键（仅在终端聚焦时生效）=====
+    // Ctrl+Alt+J：向下滚动终端内容（模拟鼠标滚轮向下）
+    {
+        "key": "ctrl+alt+j",
+        "command": "workbench.action.terminal.scrollDown",
+        "when": "terminalFocus"
+    },
+    // Ctrl+Alt+K：向上滚动终端内容（模拟鼠标滚轮向上）
+    {
+        "key": "ctrl+alt+k",
+        "command": "workbench.action.terminal.scrollUp",
+        "when": "terminalFocus"
+    },
+    // Ctrl+Shift+J：向下拉动终端框 → 缩小终端占比
+    {
+        "key": "ctrl+shift+j",
+        "command": "workbench.action.terminal.resizePaneDown",
+        "when": "terminalFocus"
+    },
+    // Ctrl+Shift+K：向上拉动终端框 → 增大终端占比
+    {
+        "key": "ctrl+shift+k",
+        "command": "workbench.action.terminal.resizePaneUp",
+        "when": "terminalFocus"
+    },
+    // ===== 终端输入行光标移动（向终端发送方向键序列）=====
+    // Ctrl+H：光标左移
+    {
+        "key": "ctrl+h",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": { "text": "\u001b[D" },
+        "when": "terminalFocus"
+    },
+    // Ctrl+J：光标下移
+    {
+        "key": "ctrl+j",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": { "text": "\u001b[B" },
+        "when": "terminalFocus"
+    },
+    // Ctrl+K：光标上移
+    {
+        "key": "ctrl+k",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": { "text": "\u001b[A" },
+        "when": "terminalFocus"
+    },
+    // Ctrl+L：光标右移
+    {
+        "key": "ctrl+l",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": { "text": "\u001b[C" },
+        "when": "terminalFocus"
+    },
+    // Ctrl+O：新建一个终端
+    {
+        "key": "ctrl+o",
+        "command": "workbench.action.terminal.new",
+        "when": "terminalFocus"
+    },
+    // Ctrl+P：左右切分当前终端
+    {
+        "key": "ctrl+p",
+        "command": "workbench.action.terminal.split",
+        "when": "terminalFocus"
+    },
+    // Ctrl+[：关闭当前终端
+    {
+        "key": "ctrl+[",
+        "command": "workbench.action.terminal.kill",
+        "when": "terminalFocus"
+    },
+    // Alt+K：上移 → 上一个终端组（已切分的多个子终端算作一个整体）
+    {
+        "key": "alt+k",
+        "command": "workbench.action.terminal.focusPrevious",
+        "when": "terminalFocus"
+    },
+    // Alt+J：下移 → 下一个终端组（已切分的多个子终端算作一个整体）
+    {
+        "key": "alt+j",
+        "command": "workbench.action.terminal.focusNext",
+        "when": "terminalFocus"
+    },
+    // Alt+H：左移 → 当前组内上一个子终端分屏
+    {
+        "key": "alt+h",
+        "command": "workbench.action.terminal.focusPreviousPane",
+        "when": "terminalFocus"
+    },
+    // Alt+L：右移 → 当前组内下一个子终端分屏
+    {
+        "key": "alt+l",
+        "command": "workbench.action.terminal.focusNextPane",
+        "when": "terminalFocus"
+    },
+]
