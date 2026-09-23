@@ -88,9 +88,9 @@ C:\Users\<你的用户名>\AppData\Roaming\Code\User\settings.json
 | `Ctrl+J` | `terminal.sendSequence`（`\u001b[B`） | 当前输入行光标**下移**（等效 `↓`） |
 | `Ctrl+K` | `terminal.sendSequence`（`\u001b[A`） | 当前输入行光标**上移**（等效 `↑`） |
 | `Ctrl+L` | `terminal.sendSequence`（`\u001b[C`） | 当前输入行光标**右移**（等效 `→`） |
-| `Ctrl+O` | `terminal.new` | 新建一个终端 |
-| `Ctrl+P` | `terminal.split` | 左右切分当前终端 |
-| `Ctrl+[` | `terminal.kill` | 关闭当前终端 |
+| `Alt+O` | `terminal.new` | 新建一个终端 |
+| `Alt+P` | `terminal.split` | 左右切分当前终端 |
+| `Alt+[` | `terminal.kill` | 关闭当前终端 |
 | `Alt+K` | `terminal.focusPrevious` | 上移 → 上一个**终端组**（已切分的多个子终端算作一个整体） |
 | `Alt+J` | `terminal.focusNext` | 下移 → 下一个**终端组**（整体切换） |
 | `Alt+H` | `terminal.focusPreviousPane` | 左移 → 当前组内**上一个子终端分屏** |
@@ -102,7 +102,7 @@ C:\Users\<你的用户名>\AppData\Roaming\Code\User\settings.json
 
 - **编辑区 `Shift+J` / `Shift+K` 会覆盖 VSCodeVim 的 `J`（合并行）、`K`（查看关键字）**，并且可能影响在插入模式下输入大写 `J` / `K`；若不希望这样，可改为 `Alt+J` / `Alt+K`。
 - `Ctrl+X` 原本是编辑器的「剪切」，现在改为关闭文件（用 Vim 的 `x`/`d` 剪切可忽略此影响）。
-- `Ctrl+[` 在终端里原本等价于发送 `Esc`，现在改为关闭终端，终端内的 vim/tmux 将收不到该 `Esc`。
+- `Alt+[` 用于关闭当前终端（不再占用 `Ctrl+[` 发送 `Esc` 的默认行为，终端内 vim/tmux 可继续用 `Ctrl+[` 当 `Esc`）。
 - `Ctrl+Shift+X` 原本是「显示扩展」，已被覆盖。
 - **`Alt+H/J/K/L` 覆盖了 shell 的 Meta 键绑定**：例如 `Alt+H`（向后删除单词）、`Alt+L`（单词转小写）等 readline 默认行为会被改掉。若某些终端把 Alt 组合吞掉导致无效，请检查终端的 Alt/Meta 设置。
 - **终端 `Ctrl+H/J/K/L` 覆盖了 shell 的默认行为**：`Ctrl+H`（退格）、`Ctrl+J`（换行/回车）、`Ctrl+K`（删除到行尾）、`Ctrl+L`（清屏）都会变成光标移动；并且 `Ctrl+J/K`（下/上）在多数 shell 中即方向键，会触发**历史命令**浏览，而不是在当前输入行内垂直移动。

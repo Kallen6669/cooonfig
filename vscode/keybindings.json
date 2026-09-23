@@ -107,21 +107,21 @@
         "args": { "text": "\u001b[C" },
         "when": "terminalFocus"
     },
-    // Ctrl+O：新建一个终端
+    // Alt+O：新建一个终端
     {
-        "key": "ctrl+o",
+        "key": "alt+o",
         "command": "workbench.action.terminal.new",
         "when": "terminalFocus"
     },
-    // Ctrl+P：左右切分当前终端
+    // Alt+P：左右切分当前终端
     {
-        "key": "ctrl+p",
+        "key": "alt+p",
         "command": "workbench.action.terminal.split",
         "when": "terminalFocus"
     },
-    // Ctrl+[：关闭当前终端
+    // Alt+[：关闭当前终端
     {
-        "key": "ctrl+[",
+        "key": "alt+[",
         "command": "workbench.action.terminal.kill",
         "when": "terminalFocus"
     },
