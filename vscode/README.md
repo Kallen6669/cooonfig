@@ -49,7 +49,7 @@ C:\Users\<你的用户名>\AppData\Roaming\Code\User\settings.json
 1. **`settings.json` 建议合并，不要直接覆盖。** 如果新 VSCode 里已经有
    `remote.SSH.remotePlatform`、扩展相关等配置，直接覆盖会丢失。可以先备份原来的，
    再把本文件里的键合并进去。
-2. **`keybindings.json` 可以直接整体覆盖**（它只是一个数组）。
+2. **`keybindings.json` 建议合并到现有数组。** 若已有相同按键和 `when` 条件的配置，更新已有项；整体覆盖前先备份，避免丢失新环境的其他快捷键。
 3. 复制完成后一般**无需重启**，VSCode 会自动重新加载；若没生效，重启一次即可。
 
 ---
@@ -88,6 +88,7 @@ C:\Users\<你的用户名>\AppData\Roaming\Code\User\settings.json
 | `Ctrl+J` | `terminal.sendSequence`（`\u001b[B`） | 当前输入行光标**下移**（等效 `↓`） |
 | `Ctrl+K` | `terminal.sendSequence`（`\u001b[A`） | 当前输入行光标**上移**（等效 `↑`） |
 | `Ctrl+L` | `terminal.sendSequence`（`\u001b[C`） | 当前输入行光标**右移**（等效 `→`） |
+| `Shift+Enter` | `terminal.sendSequence`（`\u001b[13;2u`） | Codex 输入框换行，普通 `Enter` 仍用于发送 |
 | `Alt+O` | `terminal.new` | 新建一个终端 |
 | `Alt+P` | `terminal.split` | 左右切分当前终端 |
 | `Alt+[` | `terminal.kill` | 关闭当前终端 |
@@ -111,6 +112,7 @@ C:\Users\<你的用户名>\AppData\Roaming\Code\User\settings.json
 
 | 配置项 | 值 | 作用 |
 |--------|-----|------|
+| `terminal.integrated.rightClickBehavior` | `"copyPaste"` | 有选区时右键复制，无选区时右键粘贴 |
 | `js/ts.locale` | `"zh-CN"` | JS/TS 相关提示使用中文 |
 | `vim.insertModeKeyBindings` | `j k` → `<Esc>` | VSCodeVim：在插入模式下连按 `j`、`k` 退回到普通模式（代替 Esc） |
 | `vim.normalModeKeyBindingsNonRecursive` | `J`、`K` → 空动作 | 屏蔽 VSCodeVim 的 `J`（合并行）和 `K`（查看关键字），避免与 `Shift+J/K` 切文件冲突 |
@@ -120,3 +122,9 @@ C:\Users\<你的用户名>\AppData\Roaming\Code\User\settings.json
 | `security.workspace.trust.untrustedFiles` | `"open"` | 未受信任的工作区中的文件仍可直接打开 |
 
 > `settings.json` 依赖扩展：`vim`（VSCodeVim）、`Rainbow Brackets`。新环境需先安装这些扩展，相关配置才会生效。
+
+### 3. Codex 终端输入与复制
+
+使用 Codex CLI 时，还需合并 [`../codex/config.toml`](../codex/config.toml) 中的界面设置，让终端负责文字选区。迁移位置与生效方式见 [`../codex/README.md`](../codex/README.md)。
+
+Shift+Enter 使用独立的修饰键序列；不要将其改为 `\n`，因为 VS Code 会将该字符转换为普通回车。该快捷键只在终端聚焦时生效，不影响编辑器的 Shift+Enter；其他终端程序如何处理此序列取决于程序自身。

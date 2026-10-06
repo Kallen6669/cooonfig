@@ -2,7 +2,7 @@
 
 用于集中存放并版本管理个人常用的编辑器配置，方便在新机器 / 新环境上快速复用。
 
-目前包含 **VSCode** 的配置，后续计划加入 **Neovim** 的配置。
+目前包含 **VSCode** 和 **Codex CLI** 的配置，后续计划加入 **Neovim** 的配置。
 
 ---
 
@@ -15,6 +15,9 @@ conf/
 │   ├── README.md          #   ↳ 详细的安装与说明（重点看这个）
 │   ├── keybindings.json   #   ↳ 自定义快捷键
 │   └── settings.json      #   ↳ 用户设置（含 VSCodeVim）
+├── codex/                 # Codex CLI 配置备份
+│   ├── README.md          #   ↳ 作用、迁移位置与验证说明
+│   └── config.toml        #   ↳ 可合并的终端界面配置片段
 └── tests/                 # 临时测试文件（可忽略）
 ```
 
@@ -38,6 +41,10 @@ conf/
 
 - `vim`（VSCodeVim）
 - `Rainbow Brackets`
+
+### `codex/`
+
+保存 Codex CLI 的终端界面配置片段，与 VSCode 的 Shift+Enter 换行、右键复制／粘贴设置配合使用。迁移时合并到运行 Codex 的环境中的 `~/.codex/config.toml`；已有配置不要直接覆盖。详细步骤见 **[`codex/README.md`](./codex/README.md)**。
 
 ### `tests/`
 
@@ -75,10 +82,10 @@ git clone https://github.com/Kallen6669/cooonfig.git
 
 - `settings.json` **建议合并，不要直接覆盖**，否则可能丢失新环境已有的配置
   （如 `remote.SSH.remotePlatform`、扩展相关项等）。
-- `keybindings.json` 是纯数组，可以直接整体覆盖。
+- `keybindings.json` 的快捷键合并到现有数组；已有相同按键和条件时更新该项，整体覆盖前先备份。
 - 复制后一般无需重启，VSCode 会自动重载；未生效则重启一次。
 
-更多细节见 [`vscode/README.md`](./vscode/README.md)。
+更多细节见 [`vscode/README.md`](./vscode/README.md)。Codex 配置另外按 [`codex/README.md`](./codex/README.md) 合并到运行环境中的配置文件。
 
 ---
 

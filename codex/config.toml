@@ -1,0 +1,3 @@
+# 使用普通滚动界面，让外层终端负责文字选区和右键复制。
+[tui]
+alternate_screen = "never"

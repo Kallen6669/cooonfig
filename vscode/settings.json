@@ -22,5 +22,7 @@
     },
     "vim.useCtrlKeys": false,
     "RainbowBrackets.depreciation-notice": false,
-    "security.workspace.trust.untrustedFiles": "open"
+    "security.workspace.trust.untrustedFiles": "open",
+    // 有选区时右键复制，没有选区时右键粘贴。
+    "terminal.integrated.rightClickBehavior": "copyPaste"
 }

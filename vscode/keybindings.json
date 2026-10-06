@@ -149,4 +149,11 @@
         "command": "workbench.action.terminal.focusNextPane",
         "when": "terminalFocus"
     },
+    // 保留 Shift+Enter 的修饰键，避免普通换行字符被 VS Code 转成发送键。
+    {
+        "key": "shift+enter",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": { "text": "\u001b[13;2u" },
+        "when": "terminalFocus"
+    },
 ]
